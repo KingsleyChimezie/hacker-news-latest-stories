@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 
 // Third Party Modules
 import { PrimengModule } from './modules/primeng/primeng.module';
+import { AngularComponent } from './pages/angular/angular.component';
+import { HnNewstoriesComponent } from './pages/hn-newstories/hn-newstories.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AngularComponent,
+    HnNewstoriesComponent
   ],
   imports: [
     BrowserModule,
