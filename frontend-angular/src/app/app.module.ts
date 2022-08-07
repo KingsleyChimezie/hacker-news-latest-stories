@@ -10,11 +10,11 @@ import { PrimengModule } from './modules/primeng/primeng.module';
 // PAGES
 import { AngularComponent } from './pages/angular/angular.component';
 import { HnNewstoriesComponent } from './pages/hn-newstories/hn-newstories.component';
+import { Error404Component } from './pages/error-pages/error404/error404.component';
 
 // SHARED COMPONENTS
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { Error404Component } from './pages/error-pages/error404/error404.component';
 
 @NgModule({
   declarations: [
