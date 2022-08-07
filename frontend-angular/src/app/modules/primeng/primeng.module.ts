@@ -12,6 +12,7 @@ import {RippleModule} from 'primeng/ripple';
 const PrimengComponents = [
   ProgressSpinnerModule,
   DataViewModule,
+  ButtonModule,
   PanelModule,
   DropdownModule,
   DialogModule,
