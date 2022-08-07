@@ -20,4 +20,11 @@ describe('AngularComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render body title as \'Angular Template!\'', () => {
+    const fixture = TestBed.createComponent(AngularComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Angular Template!');
+  });
 });
