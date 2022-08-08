@@ -1,1 +1,38 @@
-<p>hn-newstories works!</p>
+<div class="content" role="main">
+
+  <div id="headerRow" class="w3-row">
+    <div class="w3-col s6 w3-right-align">
+      <h1 class="w3-left">New Stories</h1>
+    </div>
+
+    <!-- search -->
+    <div class="w3-col s5 w3-right-align header-column">
+      <span class="p-input-icon-left ">
+        <i class="pi pi-search"></i>
+        <input type="text" class="" pInputText placeholder="Search"
+          [(ngModel)]="searchString" />
+      </span>
+    </div>
+
+    <!-- sidebar button -->
+    <div class="w3-col s1 w3-right-align header-column">
+      <p-button type="button" (click)="showSidebar = true" icon="pi pi-arrow-left"></p-button>
+    </div>
+  </div>
+
+    <p-card id="hnFeed" class="feed mt-5 mb-5">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non mollitia explicabo consequatur quas ea asperiores eligendi facilis veritatis quasi impedit tenetur harum commodi obcaecati, et a molestiae ratione veniam ducimus.
+    Corporis recusandae, commodi aliquid cumque magni in officia minima reiciendis sint quasi ea dignissimos odit enim beatae pariatur, aperiam veritatis optio itaque impedit! Placeat nesciunt iusto sint alias blanditiis sit.
+    Nihil quas ducimus ipsam rerum? Provident repudiandae consequuntur rem placeat odio ipsum, quos velit nobis dignissimos quae culpa a non tempore sapiente quaerat accusantium. Est quasi tempora debitis soluta placeat?
+    Assumenda commodi, repellat rem, tenetur mollitia, ipsum suscipit dolores nam illum facere natus! Corrupti, dolore ex porro commodi fuga sit blanditiis error accusantium ipsa quidem amet suscipit atque voluptates
+    saepe.
+    </p-card>
+</div>
+
+<!-- sidebar -->
+<p-sidebar [(visible)]="showSidebar" position="right" [baseZIndex]="10000">
+  <div class="p-field-checkbox">
+    <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary"></p-checkbox>
+    <label for="binary"> Open stories in new tab</label>
+  </div>
+</p-sidebar>

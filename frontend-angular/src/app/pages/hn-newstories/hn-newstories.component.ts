@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-hn-newstories',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HnNewstoriesComponent implements OnInit {
 
-  constructor() { }
+  // prime NG variables
+  showSidebar;
+  searchString
+  checked: boolean = false;
+
+  constructor(
+    private primengConfig: PrimeNGConfig
+  ) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
   }
 
 }
