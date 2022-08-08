@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
+
 
 // THIRD PARTY MODULES
 import { PrimengModule } from './modules/primeng/primeng.module';
@@ -32,6 +34,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     PrimengModule
   ],
   providers: [],
