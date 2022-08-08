@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-nav',
@@ -12,9 +13,15 @@ export class NavComponent implements OnInit {
   hide = true;
   hidePathsArr = ['/angular'];
 
+  // prime NG variables
+  showSidebar;
+  searchString
+  checked: boolean = false;
+
   constructor(
     private location: Location,
-    private router: Router
+    private router: Router,
+    private primengConfig: PrimeNGConfig
   ) {
     // check current path in array
     router.events.subscribe(() => {
@@ -24,6 +31,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
   }
 
 }
