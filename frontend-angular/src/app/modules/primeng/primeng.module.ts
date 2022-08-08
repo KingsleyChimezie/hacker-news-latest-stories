@@ -8,6 +8,12 @@ import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {RatingModule} from 'primeng/rating';
 import {RippleModule} from 'primeng/ripple';
+import { SidebarModule } from 'primeng/sidebar';
+import {SelectButtonModule} from 'primeng/selectbutton';
+import {CheckboxModule} from 'primeng/checkbox';
+import {DividerModule} from 'primeng/divider';
+import {CardModule} from 'primeng/card';
+
 
 const PrimengComponents = [
   ProgressSpinnerModule,
@@ -18,7 +24,12 @@ const PrimengComponents = [
   DialogModule,
   InputTextModule,
   RatingModule,
-  RippleModule
+  RippleModule,
+  SidebarModule,
+  SelectButtonModule,
+  CheckboxModule,
+  DividerModule,
+  CardModule
 ]
 
 @NgModule({
