@@ -21,7 +21,7 @@ export class HnNewstoriesComponent implements OnInit {
   session: any
   localStorageHN = {
     openStoriesInNewTab: false,
-    loadNumber: 15
+    numberOfStoriesToLoad: 15
   }
 
   // loading
@@ -31,28 +31,34 @@ export class HnNewstoriesComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private storiesService: StoriesService
   ) {
-    this.getNewStories();
   }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
-    this.setLocalStorage()
+    if(this.getLocalStorage() != null) {
+      this.localStorageHN = this.getLocalStorage()
+      console.log(this.localStorageHN)
+    }
+    // console.log(this.localStorageHN)
+    this.getNewStories();
   }
 
   getNewStories() {
     // get newest stories from HN API
-    this.storiesService.getHnNewStories$(this.localStorageHN.loadNumber).subscribe(data => {
+    this.storiesService.getHnNewStories$(this.localStorageHN.numberOfStoriesToLoad).subscribe(data => {
       this.loading = false;
       this.stories = data;
     })
   }
 
   // function to dynamically set URL target when a title is clicked, i.e. open in the same or another window.
-  setUrlTarget() {
-    if(this.checked === true) {
+  setOpenStoriesInNewTab() {
+    if(this.localStorageHN.openStoriesInNewTab === true) {
       this.urlTarget = '_blank'
+      this.setLocalStorage()
     } else {
       this.urlTarget = '_self'
+      this.setLocalStorage()
     }
   }
 
@@ -64,9 +70,9 @@ export class HnNewstoriesComponent implements OnInit {
    localStorage.setItem('localStorageHN', JSON.stringify(this.localStorageHN))
   }
   getLocalStorage() {
-      let data: any = localStorage.getItem('localStorageHN')
-      this.session = JSON.parse(data);
-      return this.session.openStoriesInNewTab
+    let data: any = localStorage.getItem('localStorageHN')
+    this.session = JSON.parse(data);
+    return this.session
   }
 
 }

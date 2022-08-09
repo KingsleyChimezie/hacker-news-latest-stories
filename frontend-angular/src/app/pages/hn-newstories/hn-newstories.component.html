@@ -10,11 +10,11 @@
       <div class="p-grid p-fluid">
         <div class="p-grid p-fluid">
           <div class="p-field p-col-12 p-md-3">
-            <p-inputNumber [(ngModel)]="localStorageHN.loadNumber" mode="decimal" [showButtons]="true"
-              inputId="minmax-buttons" [min]="1" [max]="500" (ngModelChange)="getNewStories()">
+            <p-inputNumber [(ngModel)]="localStorageHN.numberOfStoriesToLoad" mode="decimal" [showButtons]="true"
+              inputId="minmax-buttons" [min]="1" [max]="500" (ngModelChange)="setLocalStorage(); getNewStories()">
             </p-inputNumber>
-            <label for="minmax-buttons" class="w3-left">Enter number of stories to load (0-500) |
-              {{localStorageHN.loadNumber}}</label>
+            <label for="minmax-buttons" class="w3-left">Enter number of stories to load (1-500) |
+              {{localStorageHN.numberOfStoriesToLoad}}</label>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
 
       <!-- content -->
       <ng-container *ngIf=stories | async as story.title; else skeletonLoading>
-        <h2 id="storyTitle" class="w3-large">{{i+1}}. <a (click)="setUrlTarget()" target={{urlTarget}}
+        <h2 id="storyTitle" class="w3-large">{{i+1}}. <a (click)="setOpenStoriesInNewTab()" target={{urlTarget}}
             href={{story.url}}> {{story.title}} </a></h2>
       </ng-container>
 
@@ -48,7 +48,7 @@
 <!-- sidebar -->
 <p-sidebar [(visible)]="showSidebar" position="right" [baseZIndex]="10000">
   <div class="p-field-checkbox">
-    <p-checkbox [(ngModel)]="checked" (click)="setLocalStorage()" [binary]="true" inputId="binary"></p-checkbox>
+    <p-checkbox [(ngModel)]="localStorageHN.openStoriesInNewTab" (ngModelChange)="setLocalStorage()" [binary]="true" inputId="binary"></p-checkbox>
     <label for="binary"> Open stories in new tab</label>
   </div>
 </p-sidebar>
