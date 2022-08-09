@@ -19,6 +19,12 @@ h6 {
 p {
   margin: 0;
 }
+a {
+  text-decoration: none;
+  &:hover {
+    color: teal;
+  }
+}
 
 .content {
   display: flex;

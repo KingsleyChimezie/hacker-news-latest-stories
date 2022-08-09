@@ -13,6 +13,7 @@ import {SelectButtonModule} from 'primeng/selectbutton';
 import {CheckboxModule} from 'primeng/checkbox';
 import {DividerModule} from 'primeng/divider';
 import {CardModule} from 'primeng/card';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 
 const PrimengComponents = [
@@ -29,7 +30,9 @@ const PrimengComponents = [
   SelectButtonModule,
   CheckboxModule,
   DividerModule,
-  CardModule
+  CardModule,
+  InputNumberModule,
+
 ]
 
 @NgModule({
