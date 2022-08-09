@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { StoriesService } from './../../core/services/hn-api/stories.service';
 
 import { HnNewstoriesComponent } from './hn-newstories.component';
 
@@ -8,7 +10,9 @@ describe('HnNewstoriesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HnNewstoriesComponent ]
+      declarations: [ HnNewstoriesComponent ],
+      imports: [HttpClientTestingModule],
+      providers: [StoriesService]
     })
     .compileComponents();
 
