@@ -4,6 +4,7 @@ import { Story } from '../../interfaces/hacker-news/stories.interface';
 import * as HNConsts from '../../constants/hacker-news.constants'
 import { Observable, forkJoin } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,10 +15,15 @@ export class StoriesService {
   constructor(private http: HttpClient) { }
 
   // Get new Stories (500 is the max by HN)
-  getHnNewStories$(load: number): Observable<Story[]> {
+  getHnNewStories$(numberOfStoriesToLoad: number): Observable<Story[]> {
+
+    // set default number if 'load' is not a number or equals to 0 (CANNOT = 0! this will cause 400 HTTP error)
+    if(typeof(numberOfStoriesToLoad) != 'number' || numberOfStoriesToLoad == 0) {
+      numberOfStoriesToLoad = 15;
+    }
 
     // set the URL for New Stories, orded by key (latest first)
-    const URL_NEWSTORIES = `${HNConsts.HN_URL}${HNConsts.HN_NEWSTORIES}.json?orderBy=\"$key\"&limitToFirst=${load}`;
+    const URL_NEWSTORIES = `${HNConsts.HN_URL}${HNConsts.HN_NEWSTORIES}.json?orderBy=\"$key\"&limitToFirst=${numberOfStoriesToLoad}`;
 
     // return data from GET request to HN API.
     this.stories$ = this.http.get(URL_NEWSTORIES)
