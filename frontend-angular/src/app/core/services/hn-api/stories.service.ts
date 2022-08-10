@@ -19,7 +19,7 @@ export class StoriesService {
 
     // set default number if 'load' is not a number or equals to 0 (CANNOT = 0! this will cause 400 HTTP error)
     if(typeof(numberOfStoriesToLoad) != 'number' || numberOfStoriesToLoad == 0) {
-      numberOfStoriesToLoad = 15;
+      numberOfStoriesToLoad = HNConsts.HN_NUMBER_OF_STORIES_TO_LOAD;
     }
 
     // set the URL for New Stories, orded by key (latest first)

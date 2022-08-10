@@ -6,3 +6,4 @@
 
 export const HN_URL = 'https://hacker-news.firebaseio.com/v0/';  // base USL
 export const HN_NEWSTORIES = 'newstories'                        // story category (i.e. best, new etc)
+export const HN_NUMBER_OF_STORIES_TO_LOAD = 15                   // default number of stories to load

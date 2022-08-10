@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
 import { StoriesService } from '../../core/services/hn-api/stories.service';
 import { Story } from '../../core/interfaces/hacker-news/stories.interface';
+import * as HNConsts from '../../core/constants/hacker-news.constants'
+
 @Component({
   selector: 'app-hn-newstories',
   templateUrl: './hn-newstories.component.html',
@@ -21,7 +23,7 @@ export class HnNewstoriesComponent implements OnInit {
   session: any
   localStorageHN = {
     openStoriesInNewTab: false,
-    numberOfStoriesToLoad: 15
+    numberOfStoriesToLoad: HNConsts.HN_NUMBER_OF_STORIES_TO_LOAD
   }
 
   // loading
@@ -35,11 +37,13 @@ export class HnNewstoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+
+    // if local storage data exist
     if(this.getLocalStorage() != null) {
       this.localStorageHN = this.getLocalStorage()
       console.log(this.localStorageHN)
     }
-    // console.log(this.localStorageHN)
+
     this.getNewStories();
   }
 
