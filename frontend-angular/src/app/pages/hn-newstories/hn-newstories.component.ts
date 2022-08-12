@@ -28,6 +28,7 @@ export class HnNewstoriesComponent implements OnInit {
 
   // loading
   loading = true;
+  localStorageName = 'localStorageHN';
 
   constructor(
     private primengConfig: PrimeNGConfig,
@@ -71,10 +72,10 @@ export class HnNewstoriesComponent implements OnInit {
   * Allows ability to remember selection when browser is reloaded. */
  setLocalStorage(): void {
    console.log("setting local storage")
-   localStorage.setItem('localStorageHN', JSON.stringify(this.localStorageHN))
+   localStorage.setItem(this.localStorageName, JSON.stringify(this.localStorageHN))
   }
   getLocalStorage() {
-    let data: any = localStorage.getItem('localStorageHN')
+    let data: any = localStorage.getItem(this.localStorageName)
     this.session = JSON.parse(data);
     return this.session
   }
